@@ -42,66 +42,105 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
+    <div className="min-h-screen flex items-center justify-center bg-gray-50">
       <div className="absolute top-5 left-5">
         <Link to="/">
-          <img src="/src/assets/images/logo.png" alt="Trek Logo" className="h-25" />
+          <img
+            src="/src/assets/images/logo.png"
+            alt="Trek Logo"
+            className="h-12"
+          />
         </Link>
       </div>
-      <div className="relative w-full max-w-4xl flex bg-white shadow-lg rounded-lg overflow-hidden">
+      <div className="relative flex w-full max-w-4xl bg-white shadow-lg rounded-lg overflow-hidden">
         <div className="hidden md:block w-1/2">
           <img
             src="/src/assets/images/login2.jpg"
             alt="Trek Background"
-            className="w-full h-full object-cover"
+            className="object-cover w-full h-full"
           />
         </div>
-        <div className="w-full md:w-1/2 p-8">
-          <h2 className="text-2xl font-bold text-gray-800 text-center">Login to Your Account</h2>
-          <p className="mb-6 text-gray-300">Login with Email</p>
+        <div className="w-full p-8 md:w-1/2">
+          <h2 className="text-2xl font-bold text-center text-gray-800">
+            Login to Your Account
+          </h2>
+          <p className="mb-6 text-center text-gray-500">
+            Welcome back! Please enter your details.
+          </p>
 
-          <form onSubmit={handleLogin} className="space-y-4">
-            <input 
-              type="email"
-              placeholder="Enter Email or Username"
-              className="w-full rounded-lg border border-white/30 bg-white/10 px-4 py-2 text-white placeholder-gray-300 focus:border-red-400 focus:ring-1 focus:ring-red-400"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
-            <input 
-              type="password"
-              placeholder="Enter Password"
-              className="w-full rounded-lg border border-white/30 bg-white/10 px-4 py-2 text-white placeholder-gray-300 focus:border-red-400 focus:ring-1 focus:ring-red-400"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-            />
-            <a href="#" className="text-sm text-red-300 hover:underline">Forgot your password?</a>
+          <form onSubmit={handleLogin} className="space-y-6">
+            <div>
+              <label
+                htmlFor="email"
+                className="block mb-2 text-sm font-medium text-gray-700"
+              >
+                Email
+              </label>
+              <input
+                id="email"
+                type="email"
+                placeholder="Enter your email"
+                className="w-full px-4 py-2 text-gray-700 bg-gray-100 border border-gray-300 rounded-lg focus:ring-red-500 focus:border-red-500"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              />
+            </div>
+            <div>
+              <label
+                htmlFor="password"
+                className="block mb-2 text-sm font-medium text-gray-700"
+              >
+                Password
+              </label>
+              <input
+                id="password"
+                type="password"
+                placeholder="Enter your password"
+                className="w-full px-4 py-2 text-gray-700 bg-gray-100 border border-gray-300 rounded-lg focus:ring-red-500 focus:border-red-500"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+              />
+            </div>
+            <div className="text-right">
+              <a href="#" className="text-sm text-red-600 hover:underline">
+                Forgot your password?
+              </a>
+            </div>
 
-            <button 
-              type="submit" 
-              className="w-full rounded-lg bg-red-700 px-4 py-2 text-white hover:bg-red-800"
-              disabled={mutation.isLoading}
+            <button
+              type="submit"
+              className="w-full px-4 py-2 font-bold text-white bg-red-600 rounded-lg hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50"
+              disabled={mutation.isPending}
             >
-              {mutation.isLoading ? "Logging in..." : "LOGIN"}
+              {mutation.isPending ? "Logging in..." : "LOGIN"}
             </button>
           </form>
 
-          <div className="my-6 flex items-center justify-center space-x-2">
-            <span className="h-px w-16 bg-gray-500"></span>
-            <span className="text-gray-400">OR</span>
-            <span className="h-px w-16 bg-gray-500"></span>
+          <div className="flex items-center justify-center my-6">
+            <span className="w-16 h-px bg-gray-300"></span>
+            <span className="mx-2 text-sm text-gray-500">OR</span>
+            <span className="w-16 h-px bg-gray-300"></span>
           </div>
 
           <div className="flex justify-center space-x-4">
-            <button className="rounded-full border border-gray-500 p-3 text-red-300 hover:bg-red-700"><FaGoogle size={20} /></button>
-            <button className="rounded-full border border-gray-500 p-3 text-red-300 hover:bg-red-700"><FaFacebook size={20} /></button>
-            <button className="rounded-full border border-gray-500 p-3 text-red-300 hover:bg-red-700"><FaApple size={20} /></button>
+            <button className="p-3 text-gray-600 bg-white border border-gray-300 rounded-full hover:bg-gray-100">
+              <FaGoogle size={20} />
+            </button>
+            <button className="p-3 text-gray-600 bg-white border border-gray-300 rounded-full hover:bg-gray-100">
+              <FaFacebook size={20} />
+            </button>
+            <button className="p-3 text-gray-600 bg-white border border-gray-300 rounded-full hover:bg-gray-100">
+              <FaApple size={20} />
+            </button>
           </div>
 
-          <p className="mt-6 text-center text-sm text-gray-300">
-            Don't have an account? <a href="/register" className="text-red-300 hover:underline">Register Now</a>
+          <p className="mt-6 text-sm text-center text-gray-500">
+            Don't have an account?{" "}
+            <Link to="/register" className="font-medium text-red-600 hover:underline">
+              Register Now
+            </Link>
           </p>
         </div>
       </div>

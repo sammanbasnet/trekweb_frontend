@@ -45,122 +45,188 @@ const Register = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
+    <div className="min-h-screen flex items-center justify-center bg-gray-50">
       <div className="absolute top-5 left-5">
         <Link to="/">
-          <img src="/src/assets/images/logo.png" alt="Trek Logo" className="h-25" />
+          <img
+            src="/src/assets/images/logo.png"
+            alt="Trek Logo"
+            className="h-12"
+          />
         </Link>
       </div>
-      <div className="relative w-full max-w-4xl flex bg-white shadow-lg rounded-lg overflow-hidden">
+      <div className="relative flex w-full max-w-4xl bg-white shadow-lg rounded-lg overflow-hidden">
         <div className="hidden md:block w-1/2">
           <img
             src="/src/assets/images/login2.jpg"
             alt="Trek Background"
-            className="w-full h-full object-cover"
+            className="object-cover w-full h-full"
           />
         </div>
-        <div className="w-full md:w-1/2 p-8">
-          <h2 className="text-2xl font-bold text-gray-800 text-center">Create an Account</h2>
-          <p className="mb-4 text-gray-300">
+        <div className="w-full p-8 md:w-1/2">
+          <h2 className="text-2xl font-bold text-center text-gray-800">
+            Create an Account
+          </h2>
+          <p className="mb-6 text-sm text-center text-gray-500">
             By creating an account, you agree to our{" "}
-            <a href="#" className="text-red-300 hover:underline">Privacy Policy</a> and{" "}
-            <a href="#" className="text-red-300 hover:underline">Terms of Use</a>.
+            <Link to="/privacy" className="font-medium text-red-600 hover:underline">
+              Privacy Policy
+            </Link>{" "}
+            and{" "}
+            <Link to="/terms" className="font-medium text-red-600 hover:underline">
+              Terms of Use
+            </Link>
+            .
           </p>
 
           <form onSubmit={handleRegister} className="space-y-4">
             <div className="flex space-x-4">
-              <input 
-                type="text"
-                name="fname"
-                placeholder="First Name"
-                className="w-1/2 rounded-lg border border-white/30 bg-white/10 px-4 py-2 text-white placeholder-gray-300 focus:border-red-400 focus:ring-1 focus:ring-red-400"
-                value={formData.fname}
-                onChange={handleChange}
-                required
-              />
-              <input 
-                type="text"
-                name="lname"
-                placeholder="Last Name"
-                className="w-1/2 rounded-lg border border-white/30 bg-white/10 px-4 py-2 text-white placeholder-gray-300 focus:border-red-400 focus:ring-1 focus:ring-red-400"
-                value={formData.lname}
+              <div className="w-1/2">
+                <label
+                  htmlFor="fname"
+                  className="block mb-2 text-sm font-medium text-gray-700"
+                >
+                  First Name
+                </label>
+                <input
+                  id="fname"
+                  type="text"
+                  name="fname"
+                  placeholder="John"
+                  className="w-full px-4 py-2 text-gray-700 bg-gray-100 border border-gray-300 rounded-lg focus:ring-red-500 focus:border-red-500"
+                  value={formData.fname}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+              <div className="w-1/2">
+                <label
+                  htmlFor="lname"
+                  className="block mb-2 text-sm font-medium text-gray-700"
+                >
+                  Last Name
+                </label>
+                <input
+                  id="lname"
+                  type="text"
+                  name="lname"
+                  placeholder="Doe"
+                  className="w-full px-4 py-2 text-gray-700 bg-gray-100 border border-gray-300 rounded-lg focus:ring-red-500 focus:border-red-500"
+                  value={formData.lname}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+            </div>
+
+            <div>
+              <label
+                htmlFor="email"
+                className="block mb-2 text-sm font-medium text-gray-700"
+              >
+                Email
+              </label>
+              <input
+                id="email"
+                type="email"
+                name="email"
+                placeholder="you@example.com"
+                className="w-full px-4 py-2 text-gray-700 bg-gray-100 border border-gray-300 rounded-lg focus:ring-red-500 focus:border-red-500"
+                value={formData.email}
                 onChange={handleChange}
                 required
               />
             </div>
 
-            <input 
-              type="email"
-              name="email"
-              placeholder="Enter Email"
-              className="w-full rounded-lg border border-white/30 bg-white/10 px-4 py-2 text-white placeholder-gray-300 focus:border-red-400 focus:ring-1 focus:ring-red-400"
-              value={formData.email}
-              onChange={handleChange}
-              required
-            />
+            <div>
+              <label
+                htmlFor="phone"
+                className="block mb-2 text-sm font-medium text-gray-700"
+              >
+                Phone Number
+              </label>
+              <input
+                id="phone"
+                type="tel"
+                name="phone"
+                placeholder="123-456-7890"
+                className="w-full px-4 py-2 text-gray-700 bg-gray-100 border border-gray-300 rounded-lg focus:ring-red-500 focus:border-red-500"
+                value={formData.phone}
+                onChange={handleChange}
+                required
+              />
+            </div>
 
-            <input 
-              type="tel"
-              name="phone"
-              placeholder="Phone Number"
-              className="w-full rounded-lg border border-white/30 bg-white/10 px-4 py-2 text-white placeholder-gray-300 focus:border-red-400 focus:ring-1 focus:ring-red-400"
-              value={formData.phone}
-              onChange={handleChange}
-              required
-            />
+            <div>
+              <label
+                htmlFor="password"
+                className="block mb-2 text-sm font-medium text-gray-700"
+              >
+                Password
+              </label>
+              <input
+                id="password"
+                type="password"
+                name="password"
+                placeholder="Enter your password"
+                className="w-full px-4 py-2 text-gray-700 bg-gray-100 border border-gray-300 rounded-lg focus:ring-red-500 focus:border-red-500"
+                value={formData.password}
+                onChange={handleChange}
+                required
+              />
+            </div>
 
-            <input 
-              type="password"
-              name="password"
-              placeholder="Enter Password"
-              className="w-full rounded-lg border border-white/30 bg-white/10 px-4 py-2 text-white placeholder-gray-300 focus:border-red-400 focus:ring-1 focus:ring-red-400"
-              value={formData.password}
-              onChange={handleChange}
-              required
-            />
+            <div>
+              <label
+                htmlFor="confirmPassword"
+                className="block mb-2 text-sm font-medium text-gray-700"
+              >
+                Confirm Password
+              </label>
+              <input
+                id="confirmPassword"
+                type="password"
+                name="confirmPassword"
+                placeholder="Confirm your password"
+                className="w-full px-4 py-2 text-gray-700 bg-gray-100 border border-gray-300 rounded-lg focus:ring-red-500 focus:border-red-500"
+                value={formData.confirmPassword}
+                onChange={handleChange}
+                required
+              />
+            </div>
 
-            <input 
-              type="password"
-              name="confirmPassword"
-              placeholder="Confirm Password"
-              className="w-full rounded-lg border border-white/30 bg-white/10 px-4 py-2 text-white placeholder-gray-300 focus:border-red-400 focus:ring-1 focus:ring-red-400"
-              value={formData.confirmPassword}
-              onChange={handleChange}
-              required
-            />
-
-            <button 
-              type="submit" 
-              className="w-full rounded-lg bg-red-700 px-4 py-2 text-white hover:bg-red-800"
-              disabled={mutation.isLoading}
+            <button
+              type="submit"
+              className="w-full px-4 py-2 font-bold text-white bg-red-600 rounded-lg hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50"
+              disabled={mutation.isPending}
             >
-              {mutation.isLoading ? "Registering..." : "CREATE ACCOUNT"}
+              {mutation.isPending ? "Registering..." : "CREATE ACCOUNT"}
             </button>
           </form>
 
-          <div className="my-6 flex items-center justify-center space-x-2">
-            <span className="h-px w-16 bg-gray-500"></span>
-            <span className="text-gray-400">OR</span>
-            <span className="h-px w-16 bg-gray-500"></span>
+          <div className="flex items-center justify-center my-6">
+            <span className="w-16 h-px bg-gray-300"></span>
+            <span className="mx-2 text-sm text-gray-500">OR</span>
+            <span className="w-16 h-px bg-gray-300"></span>
           </div>
 
           <div className="flex justify-center space-x-4">
-            <button className="rounded-full border border-gray-500 p-3 text-red-300 hover:bg-red-700">
+            <button className="p-3 text-gray-600 bg-white border border-gray-300 rounded-full hover:bg-gray-100">
               <FaGoogle size={20} />
             </button>
-            <button className="rounded-full border border-gray-500 p-3 text-red-300 hover:bg-red-700">
+            <button className="p-3 text-gray-600 bg-white border border-gray-300 rounded-full hover:bg-gray-100">
               <FaFacebook size={20} />
             </button>
-            <button className="rounded-full border border-gray-500 p-3 text-red-300 hover:bg-red-700">
+            <button className="p-3 text-gray-600 bg-white border border-gray-300 rounded-full hover:bg-gray-100">
               <FaApple size={20} />
             </button>
           </div>
 
-          <p className="mt-6 text-center text-sm text-gray-300">
+          <p className="mt-6 text-sm text-center text-gray-500">
             Already have an account?{" "}
-            <a href="/login" className="text-red-300 hover:underline">
+            <Link to="/login" className="font-medium text-red-600 hover:underline">
               Login
-            </a>
+            </Link>
           </p>
         </div>
       </div>
