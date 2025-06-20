@@ -19,6 +19,12 @@ const Dashboard = () => {
 
   return (
     <div className="space-y-6">
+      {/* Welcome Header */}
+      <div className="bg-white shadow rounded-lg p-6 mb-6">
+        <h1 className="text-2xl font-bold text-gray-800">Welcome back, Admin!</h1>
+        <p className="text-gray-600 mt-1">Here's a summary of your dashboard.</p>
+      </div>
+
       {/* Dashboard Title */}
       <h2 className="text-2xl font-semibold">Dashboard</h2>
 
