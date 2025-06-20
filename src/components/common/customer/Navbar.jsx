@@ -41,6 +41,9 @@ const Navbar = () => {
           <Link to="/" className="text-gray-700 hover:text-red-500">Home</Link>
           <Link to="/packages" className="text-gray-700 hover:text-red-500">Packages</Link>
           <Link to="/review" className="text-gray-700 hover:text-red-500">Reviews</Link>
+          {user && (
+            <Link to="/mybooking" className="text-gray-700 hover:text-red-500">My Bookings</Link>
+          )}
           <Link to="/contact" className="text-gray-700 hover:text-red-500">Contact</Link>
           <Link to="/aboutus" className="text-gray-700 hover:text-red-500">About Us</Link>
         </div>
@@ -79,7 +82,10 @@ const Navbar = () => {
         <div className="md:hidden bg-white shadow-md absolute top-full left-0 w-full py-4">
           <Link to="/" className="block px-6 py-2 text-gray-700 hover:bg-gray-100">Home</Link>
           <Link to="/packages" className="block px-6 py-2 text-gray-700 hover:bg-gray-100">Packages</Link>
-          <Link to="/reviews" className="block px-6 py-2 text-gray-700 hover:bg-gray-100">Reviews</Link>
+          <Link to="/review" className="block px-6 py-2 text-gray-700 hover:bg-gray-100">Reviews</Link>
+          {user && (
+            <Link to="/mybooking" className="block px-6 py-2 text-gray-700 hover:bg-gray-100">My Bookings</Link>
+          )}
           <Link to="/contact" className="block px-6 py-2 text-gray-700 hover:bg-gray-100">Contact</Link>
           <Link to="/about-us" className="block px-6 py-2 text-gray-700 hover:bg-gray-100">About Us</Link>
 
