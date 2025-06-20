@@ -11,7 +11,7 @@ const Login = () => {
   const navigate = useNavigate();
 
   const loginUser = async (userData) => {
-    const response = await axios.post("http://localhost:3000/api/v1/auth/login", userData);
+    const response = await axios.post("/api/v1/auth/login", userData);
     return response.data;
   };
 

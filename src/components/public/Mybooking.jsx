@@ -21,7 +21,7 @@ const MyBooking = () => {
         }
 
         const response = await axios.get(
-          `http://localhost:3000/api/v1/bookings/user/${userId}`,
+          `/api/v1/bookings/user/${userId}`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
