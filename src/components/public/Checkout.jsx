@@ -41,9 +41,9 @@ const Checkout = () => {
   // Khalti Payment Configuration
   const khaltiConfig = {
     publicKey: "test_public_key_dc74e0fd57cb46cd93832aee0a390234",
-    productIdentity: packageData._id,
+    productIdentity: packageData?._id,
     productName: packageData?.title || "Trek Package",
-    productUrl: `http://localhost:5173/packages/${packageData._id}`,
+    productUrl: `http://localhost:5173/packages/${packageData?._id}`,
     eventHandler: {
       onSuccess(payload) {
         console.log("Payment Success:", payload);

@@ -144,7 +144,10 @@ function App() {
     { path: "*", element: <>Page not found</>, errorElement: <>Error</> },
   ];
 
-  const routes = isAdmin ? privateRoutes : publicRoutes;
+  const routes = [
+    ...publicRoutes,
+    ...(isAdmin ? privateRoutes : []),
+  ];
 
   // Redirect to login if user is not authenticated
   const checkAuth = () => {
